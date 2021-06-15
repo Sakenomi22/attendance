@@ -1,24 +1,57 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## adminsテーブル
+| Column           | Type   | Options     |
+| ---------------- | ------ | ----------- |
+| email            | string | null: false |
+|encrypted_password| string | null: false |
+| family_name      | string | null: false |
+| first_name       | string | null: false |
+| family_name_kana | string | null: false |
+| first_name_kana  | string | null: false |
+| birthday         | date   | null: false |
+| post             | string | null: false |
 
-Things you may want to cover:
+### Association
+has_many :regular_hours
+has_many :comments
+has_many :users
 
-* Ruby version
+## usersテーブル
+| Column           | Type       | Options                     |
+| ---------------- | ---------- | --------------------------- |
+| email            | string     | null: false                 |
+|encrypted_password| string     | null: false                 |
+| family_name      | string     | null: false                 |
+| first_name       | string     | null: false                 |
+| family_name_kana | string     | null: false                 |
+| first_name_kana  | string     | null: false                 |
+| birthday         | date       | null: false                 |
+| admin            | references | null:false foreign_key :true|
 
-* System dependencies
+### Association
+has_many :attendances
+belongs_to :admin
+has_many :comments
 
-* Configuration
+## regular_hourテーブル
+| Column         | Type       | Options                       |
+| -------------- | ---------- | ----------------------------- |
+| regular_hour   | time       | null: false                   |
+| regular_start  | time       | null: false                   |
+| regular_end    | time       | null: false                   |
+| admin          | references | null: false foreign_key :true |
 
-* Database creation
+### Association
+belongs_to :admin
 
-* Database initialization
+## attendanceテーブル
+| Column        | Type       | Options                       |
+| ------------- | ---------- | ----------------------------- |
+| start_time    | time       | null: false                   |
+| end_time      | time       | null: false                   |
+| overtime      | integer    | null: false                   |
+| user          | references | null: false foreign_key :true |
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Association
+belongs_to :user
