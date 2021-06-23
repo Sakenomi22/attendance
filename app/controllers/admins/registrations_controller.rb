@@ -1,24 +1,24 @@
 # frozen_string_literal: true
 
 class Admins::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   def new
-    @admin = Admin.new(admin_params)
+    @admin = Admin.new
   end
 
   # POST /resource
   def create
-    @admn = Admin.create(admin_params)
+    @admin = Admin.new(configure_sign_up_params)
+    if @admin.save
+    redirect_to admin_attendances_path
+    end
     super
   end
 
   private
-  def admin_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:birthday,:post,:family_name,:first_name,:family_name_kana,:first_name_kana])
-  end
   # GET /resource/edit
   # def edit
   #   super
@@ -32,6 +32,7 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   # DELETE /resource
   # def destroy
   #   super
+  #   redirect_to root_path
   # end
 
   # GET /resource/cancel
@@ -46,9 +47,9 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:birthday,:post,:family_name,:first_name,:family_name_kana,:first_name_kana])
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params

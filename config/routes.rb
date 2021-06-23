@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
     passwords: 'admins/passwords',
-    registrations: 'admins/registrations'
+    registrations: 'admins/registrations' 
   }
 
   devise_for :users, controllers: {
@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     registrations: 'users/registrations'
   }
-  root to: 'attendances#index'
+  root to: 'static_pages#index'
+  resources :admin_attendances, only:[:index,:show,:create]
 end
