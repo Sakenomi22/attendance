@@ -30,12 +30,12 @@ has_many :attendances
 belongs_to :admin
 has_many :comments
 
-## regular_hourテーブル
+## admin_attendanceテーブル
 | Column         | Type       | Options                       |
 | -------------- | ---------- | ----------------------------- |
-| regular_hour   | time       | null: false                   |
 | regular_start  | time       | null: false                   |
 | regular_end    | time       | null: false                   |
+| regular_over   | integer    | null: false
 | admin          | references | null: false foreign_key :true |
 
 ### Association

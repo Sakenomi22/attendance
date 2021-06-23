@@ -1,0 +1,6 @@
+<h2>管理者一覧</h2>
+<% @admins.each do |admin| %>
+<li class ="admin-list">
+  <%= link_to admin.family_name + admin.first_name, admin_attendance_path(admin.id)%>
+<% end %>
+

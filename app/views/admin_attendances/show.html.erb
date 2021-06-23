@@ -1,0 +1,17 @@
+<h2>管理者メニュー</h2>
+<div class="user-group">
+  <h3>管理ユーザー一覧</h3>
+  <ul class="user-list">
+
+    <% @users.each do |user| %>
+      <% if @admin.id == user.admin_id %>
+      <li class="list">
+        <%= link_to user.family_name + user.first_name %>
+      </li>
+      <% end %>
+    <% end %>
+  </ul>
+  <div class="time-grouup">
+    <%= link_to '就業時間入力', admin_attendances_path, method: :post %>
+  
+</div>

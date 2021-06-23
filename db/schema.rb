@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_15_090032) do
+ActiveRecord::Schema.define(version: 2021_06_18_030805) do
+
+  create_table "admin_attendances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.time "regular_start", null: false
+    t.time "regular_end", null: false
+    t.integer "regular_over", null: false
+    t.bigint "admin_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["admin_id"], name: "index_admin_attendances_on_admin_id"
+  end
 
   create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -45,5 +55,6 @@ ActiveRecord::Schema.define(version: 2021_06_15_090032) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "admin_attendances", "admins"
   add_foreign_key "users", "admins"
 end
