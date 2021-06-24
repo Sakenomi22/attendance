@@ -11,5 +11,5 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root to: 'static_pages#index'
-  resources :admin_attendances, only:[:index,:show,:create]
+  resources :admin_attendances, only:[:index,:show,:new,:create]
 end

@@ -14,4 +14,5 @@ class Admin < ApplicationRecord
           end
         end
   has_many :users
+  has_many :admin_attendances
 end

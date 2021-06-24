@@ -1,0 +1,23 @@
+<div class="input-time">
+  <h2>就業時間入力</h2>
+  <%= form_with model: @admin_attendance, url: admin_attendances_path,local: true do |f| %>
+  
+  <div class="input-start-time">
+    <%= f.label :regular_start,"開始時刻", class: 'start-label' %>
+    <%= f.time_select :regular_start, promt:true, ignore_date:true, class: 'start-time' %>
+  </div>
+
+  <div class="input-end-time">
+    <%= f.label :regular_end,"終了時刻", class: 'end-label' %>
+    <%= f.time_select :regular_end, promt:true, ignore_date:true, class: 'end-time' %>
+  </div>
+
+  <div class="input-over-time">
+    <%= f.label :regular_over,"月最大残業時間",class: 'over-time-label' %>
+    <%= f.number_field :regular_over, class: 'over-time' %>
+  </div>
+  <div class="input-time-btn">
+    <%= f.submit "入力する" ,class:"time-btn" %>
+  </div>
+  <% end %>
+</div>
