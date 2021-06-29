@@ -43,6 +43,7 @@ has_many :comments
 ## admin_attendanceテーブル
 | Column         | Type       | Options                       |
 | -------------- | ---------- | ----------------------------- |
+| date           | date       | null: false                   |
 | regular_start  | time       | null: false                   |
 | regular_end    | time       | null: false                   |
 | regular_over   | integer    | null: false
@@ -54,6 +55,8 @@ belongs_to :admin
 ## attendanceテーブル
 | Column        | Type       | Options                       |
 | ------------- | ---------- | ----------------------------- |
+| year          | date       | null: false                   |
+| month         | date       | null: false                   |
 | start_time    | time       | null: false                   |
 | end_time      | time       | null: false                   |
 | overtime      | integer    | null: false                   |

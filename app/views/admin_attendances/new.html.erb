@@ -1,6 +1,11 @@
 <div class="input-time">
   <h2>就業時間入力</h2>
   <%= form_with model: @admin_attendance, url: admin_attendances_path,local: true do |f| %>
+
+  <div class="input-date">
+    <%= f.label :date, "年月", class: 'date-label' %>
+    <%= f.date_select :date,{discard_day: true,use_month_numbers: true}, class: 'date' %>
+  </div>
   
   <div class="input-start-time">
     <%= f.label :regular_start,"開始時刻", class: 'start-label' %>
