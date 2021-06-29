@@ -24,6 +24,6 @@ class AdminAttendancesController < ApplicationController
 
   private
   def attendance_params
-    params.permit(:regular_start,:regular_end,:regular_over).merge(admin_id: current_admin.id)
+    params.permit(:date,:regular_start,:regular_end,:regular_over).merge(admin_id: current_admin.id)
   end
 end
