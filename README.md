@@ -52,14 +52,13 @@ has_many :comments
 ### Association
 belongs_to :admin
 
-## attendanceテーブル
+## user_attendanceテーブル
 | Column        | Type       | Options                       |
 | ------------- | ---------- | ----------------------------- |
-| year          | date       | null: false                   |
-| month         | date       | null: false                   |
+| date          | date       | null: false                   |
 | start_time    | time       | null: false                   |
 | end_time      | time       | null: false                   |
-| overtime      | integer    | null: false                   |
+| over_time     | integer    | null: false                   |
 | user          | references | null: false foreign_key :true |
 
 ### Association
