@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
     case resource
     when Admin
       admin_attendances_path
+    when User
+      user_attendances_path
     end
-    
   end
 end

@@ -14,4 +14,5 @@ class User < ApplicationRecord
           end
         end
   belongs_to :admin
+  has_many :user_attendances
 end
