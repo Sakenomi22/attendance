@@ -1,0 +1,9 @@
+<div class="input-time">
+  <h2>就業時間入力</h2>
+  <%= form_with model: @user_attendance, url: user_attendances_path,local: true do |f| %>
+  
+    <%= f.submit "出勤", id: "start_btn" %>
+    <%= f.submit "退勤", id: "end_btn" %>
+
+  <% end %>
+</div>

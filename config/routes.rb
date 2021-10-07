@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   }
   root to: 'static_pages#index'
   resources :admin_attendances, only:[:index,:show,:new,:create]
-  resources :user_attendances, only:[:index]
+  resources :user_attendances, only:[:index,:new,:create]
 end
